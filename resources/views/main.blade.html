@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header"></div>
+                    <div class="card-boby">
+                        <a href="{{route('books.create')}}" class="btn btn-primary">Добавить</a>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>Название</td>
+                                <td>Описание</td>
+                                <td>Текст</td>
+                            </tr>
+                            <tbody>
+                                @forelse($posts as $post)
+                                <tr>
+                                    <td>{{ $post->name }}</td>
+                                    <td>{{ $post->description }}</td>
+                                    <td>{{ $post->text }}</td>
+                                </tr>
+                                @emty
+                                <tr>
+                                    <td colspan="2">Нет постов</td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>Название: <br><input type="text" name="title" class="form-control"></p>
+    <p>Файл: <br><input type="file" name="cover" class="form-control"></p>
+    <br><hr>
+    <button type="submit" class="btn btn-success">Добавить Книгу</button>
+</body>
+</html>
